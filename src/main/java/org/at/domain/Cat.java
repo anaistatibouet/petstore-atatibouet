@@ -1,12 +1,15 @@
 package org.at.domain;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue( "CAT" )
+@DiscriminatorValue( "Cat" )
 public class Cat extends Animal  {
     public Cat() {super();}
+
+    @Column(unique=true)
     private String chipId;
 
     public String getChipId() {

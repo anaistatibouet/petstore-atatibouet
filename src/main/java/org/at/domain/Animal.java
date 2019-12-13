@@ -6,7 +6,7 @@ import java.util.Date;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TYPE_ANIMAL")
-public class Animal {
+public abstract class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long Id;
@@ -53,5 +53,16 @@ public class Animal {
 
     public void setPetstore(Petstore petstore) {
         this.petstore = petstore;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Animal{");
+        sb.append("Id=").append(Id);
+        sb.append(", birth=").append(birth);
+        sb.append(", couleur='").append(couleur).append('\'');
+        sb.append(", petstore=").append(petstore);
+        sb.append('}');
+        return sb.toString();
     }
 }

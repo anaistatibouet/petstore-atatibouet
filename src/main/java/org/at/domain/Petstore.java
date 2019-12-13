@@ -34,6 +34,7 @@ public class Petstore implements Serializable {
     public Petstore() {
         address = new Address();
         animaux = new HashSet<>();
+        products = new HashSet<>();
     }
 
 
@@ -66,17 +67,23 @@ public class Petstore implements Serializable {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress( Address address ) {
+        if ( this.address != null ) {
+            this.address.setPetstore( null );
+        }
         this.address = address;
+        if ( this.address != null ) {
+            this.address.setPetstore( this );
+        }
     }
-
     public Set<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(Set<Product> products) {
+    public void setProducts( Set<Product> products ) {
         this.products = products;
     }
+
 
     public Set<Animal> getAnimaux() {
         return animaux;
@@ -84,5 +91,14 @@ public class Petstore implements Serializable {
 
     public void setAnimaux(Set<Animal> animaux) {
         this.animaux = animaux;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Petstore{");
+        sb.append("id=").append(id);
+        sb.append(", name=").append(name);
+        sb.append('}');
+        return sb.toString();
     }
 }

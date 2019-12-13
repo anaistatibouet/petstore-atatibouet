@@ -1,6 +1,7 @@
 package org.at.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -13,12 +14,14 @@ public class Product {
     private String label;
     private double price;
 
+    @Enumerated(EnumType.STRING)
     private ProductType productType;
 
     @ManyToMany(mappedBy = "products")
     private Set<Petstore> petstores;
 
     public Product() {
+        petstores = new HashSet<>();
     }
 
 //    Getter Setter

@@ -8,6 +8,14 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<class>org.at.domain.Address</class>
+		<class>org.at.domain.Animal</class>
+		<class>org.at.domain.Cat</class>
+		<class>org.at.domain.Fish</class>
+		<class>org.at.domain.Petstore</class>
+		<class>org.at.domain.Product</class>
+		<class>org.at.domain.ProductType</class>
+		<class>org.at.domain.LivingEnv</class>
+
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
